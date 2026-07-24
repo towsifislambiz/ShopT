@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --container-container: 1320px;
+  --font-pop: "Poppins", "sans-serif";
+  --font-inter: "Inter", "sans-serif";
+
+  /* Brand colours */
+  --color-primary: #FFBB38;
+  --color-primary-dark: #f5aa0a;
+  --color-dark: #1D1D1D;
+  --color-dark-2: #222222;
+  --color-text: #2B3445;
+  --color-gray-bg: #f3f4f6;
+  --color-gray-light: #F6F7FB;
+  --color-border: #E8E8F0;
+  --color-red: #FF4D4F;
+  --color-green: #2DB224;
+}
+
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #FFBB38; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #f5aa0a; }
+
+/* ── Smooth scroll ── */
+html { scroll-behavior: smooth; }
+
+/* ── Selection colour ── */
+::selection { background: #FFBB38; color: #1D1D1D; }
+
+/* ── Arrow animation (existing) ── */
+.arrow {
+  animation: moveArrow 1.2s ease-in-out infinite;
+}
+@keyframes moveArrow {
+  0%   { transform: translateX(0);  opacity: 1; }
+  50%  { transform: translateX(8px); opacity: 1; }
+  100% { transform: translateX(0);  opacity: 1; }
+}
+
+/* ── Fade-in animation ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up { animation: fadeInUp 0.5s ease both; }
+
+/* ── Pulse glow for sale badges ── */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,187,56,0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(255,187,56,0); }
+}
+.pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
+
+/* ── Shimmer loading skeleton ── */
+@keyframes shimmer {
+  0%   { background-position: -468px 0; }
+  100% { background-position: 468px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 468px 104px;
+  animation: shimmer 1.2s linear infinite;
+}
+
+/* ── Line-clamp utilities ── */
+.line-clamp-1 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; }
+.line-clamp-2 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.line-clamp-3 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+
+/* ── Countdown digit animation ── */
+@keyframes flipIn {
+  from { transform: rotateX(-90deg); opacity: 0; }
+  to   { transform: rotateX(0deg);   opacity: 1; }
+}
+.flip-digit { animation: flipIn 0.4s ease both; }
+
+/* ── Range input styling ── */
+input[type="range"] { -webkit-appearance: none; width: 100%; height: 4px; border-radius: 4px; background: #E8E8F0; outline: none; }
+input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: #FFBB38; cursor: pointer; border: 2px solid white; box-shadow: 0 1px 4px rgba(0,0,0,0.2); }
+
+/* ── Toast notification ── */
+.toast-enter { animation: fadeInUp 0.3s ease both; }
+.toast-exit  { animation: fadeInUp 0.3s ease reverse both; }
+
+/* ── Overlay ── */
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 40; }
+
+/* ── No-scrollbar ── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
